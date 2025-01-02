@@ -1,0 +1,11 @@
+diff -aur a/phoronix-test-suite/pts-core/objects/client/pts_test_installer.php b/phoronix-test-suite/pts-core/objects/client/pts_test_installer.php
+--- a/phoronix-test-suite/pts-core/objects/client/pts_test_installer.php	2024-07-30 14:58:39.432195998 +0000
++++ b/phoronix-test-suite/pts-core/objects/client/pts_test_installer.php	2024-07-30 14:59:42.048397572 +0000
+@@ -727,6 +727,7 @@
+ 					'COMPILER_OPTIONS="$@"' . PHP_EOL .
+ 					$env_var_check . PHP_EOL .
+ 					'echo $COMPILER_OPTIONS >> ' . $mask_dir . $compiler_type . '-options-' . $compiler_name . PHP_EOL .
++					'export PATH=$(echo $PATH | tr ":" "\n" | grep -v "pts-compiler-mask" | tr "\n" ":")' . PHP_EOL .
+ 					$compiler_path . ' "$@"' . PHP_EOL .
+ 					PHP_EOL);
+ 
